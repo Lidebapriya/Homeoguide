@@ -1,31 +1,186 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>HomeoGuide</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <title>HomeoGuide – Find the Right Homeopathic Doctor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
-    body{font-family:Arial, sans-serif;background:#f7fbff;margin:0;padding:20px}
-    .box{max-width:800px;margin:auto}
-    h1{font-size:32px;margin-bottom:10px}
-    p{font-size:18px;color:#333}
-    a.btn{display:inline-block;margin:10px 10px 0 0;padding:14px 24px;
-      background:#1b6b8f;color:white;text-decoration:none;border-radius:40px;font-size:18px}
-    footer{margin-top:40px;font-size:14px;color:#555;border-top:1px solid #ddd;padding-top:10px}
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0f4c75, #3282b8);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .card {
+      background: #ffffff;
+      max-width: 420px;
+      width: 100%;
+      border-radius: 18px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+      padding: 22px;
+      animation: fadeIn 0.8s ease;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    h1 {
+      text-align: center;
+      color: #0f4c75;
+      margin-bottom: 5px;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .btn-main {
+      width: 100%;
+      background: #0f4c75;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 14px;
+      font-size: 16px;
+      margin-bottom: 12px;
+      cursor: pointer;
+    }
+
+    .btn-main:hover {
+      background: #3282b8;
+    }
+
+    form {
+      display: none;
+      margin-top: 20px;
+    }
+
+    label {
+      font-size: 13px;
+      color: #333;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 12px;
+      margin-top: 6px;
+      margin-bottom: 14px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    .send-btn {
+      width: 100%;
+      background: #28a745;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 14px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .send-btn:hover {
+      background: #218838;
+    }
+
+    .footer {
+      margin-top: 18px;
+      font-size: 12px;
+      text-align: center;
+      color: #666;
+    }
+
+    .success {
+      display: none;
+      text-align: center;
+      color: green;
+      font-weight: bold;
+      margin-top: 15px;
+    }
   </style>
 </head>
+
 <body>
-  <div class="box">
+
+  <div class="card">
     <h1>HomeoGuide</h1>
-    <p>Free guide to the right homeopathic doctor and medicine support.</p>
+    <div class="subtitle">
+      Free guide to the right homeopathic doctor & medicine support.
+    </div>
 
-    <a href="matching.html" class="btn">Start My Matching</a>
-    <a href="acute.html" class="btn">Urgent Help</a>
-    <a href="pharmacy.html" class="btn">Medicine Request</a>
+    <button class="btn-main" onclick="showForm()">Start My Matching</button>
+    <button class="btn-main" onclick="showForm()">Urgent Help</button>
+    <button class="btn-main" onclick="showForm()">Medicine Request</button>
 
-    <footer>
-      <p>Contact: debapriyadhali1@gmail.com</p>
-      <p>Guidance only. For emergency, go to hospital.</p>
-    </footer>
+    <form action="https://formspree.io/f/mjknolbz" method="POST" id="homeoForm">
+
+      <label>Your Name</label>
+      <input type="text" name="name" required>
+
+      <label>Your Age</label>
+      <input type="number" name="age" required>
+
+      <label>Your City</label>
+      <input type="text" name="city" required>
+
+      <label>Your Phone / WhatsApp</label>
+      <input type="tel" name="phone" required>
+
+      <label>Your Main Problem</label>
+      <textarea name="problem" required></textarea>
+
+      <label>How Long is the Problem?</label>
+      <select name="duration">
+        <option>Less than 1 month</option>
+        <option>1–6 months</option>
+        <option>More than 6 months</option>
+      </select>
+
+      <label>Your Mind & Feelings</label>
+      <textarea name="mind"></textarea>
+
+      <!-- Formspree Enhancements -->
+      <input type="hidden" name="_subject" value="New HomeoGuide Patient Lead">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+
+      <button type="submit" class="send-btn">Send</button>
+    </form>
+
+    <div class="success" id="successMsg">
+      ✅ Your request has been sent successfully!
+    </div>
+
+    <div class="footer">
+      Contact: debapriyadhali1@gmail.com <br>
+      Guidance only. For emergency, go to hospital.
+    </div>
+
   </div>
+
+  <script>
+    function showForm() {
+      document.getElementById("homeoForm").style.display = "block";
+      document.getElementById("homeoForm").scrollIntoView({behavior: "smooth"});
+    }
+  </script>
+
 </body>
 </html>
