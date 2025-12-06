@@ -129,7 +129,9 @@
     <button class="btn-main" onclick="showForm()">Urgent Help</button>
     <button class="btn-main" onclick="showForm()">Medicine Request</button>
 
-    <form action="https://formspree.io/f/mjknolbz" method="POST" id="homeoForm">
+    <form action="https://formspree.io/f/mjknolbz" method="POST">
+  <input type="hidden" name="_replyto">
+  <input type="hidden" name="_force" value="true">
 
       <label>Your Name</label>
       <input type="text" name="name" required>
@@ -160,7 +162,8 @@
       <input type="hidden" name="_subject" value="New HomeoGuide Patient Lead">
       <input type="hidden" name="_template" value="table">
       
-
+<input type="hidden" name="_subject" value="🔥 NEW HomeoGuide Patient Lead">
+<input type="hidden" name="_template" value="table">
       <button type="submit" class="send-btn">Send</button>
     </form>
 
