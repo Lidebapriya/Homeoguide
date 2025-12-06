@@ -108,15 +108,14 @@
   <div class="card">
     <h1>HomeoGuide</h1>
     <div class="subtitle">
-      Free guide to the right homeopathic doctor &amp; medicine support.
+      Free guide to the right homeopathic doctor & medicine support.
     </div>
 
-    <!-- Buttons -->
     <button class="btn-main" id="btn1">Start My Matching</button>
     <button class="btn-main alt" id="btn2">Urgent Help</button>
     <button class="btn-main" id="btn3">Medicine Request</button>
 
-    <!-- Form -->
+    <!-- FORM -->
     <form id="homeoForm"
           action="https://formsubmit.co/debapriyadhali1@gmail.com"
           method="POST">
@@ -143,13 +142,14 @@
         <option>More than 6 months</option>
       </select>
 
-      <label>Your Mind &amp; Feelings</label>
+      <label>Your Mind & Feelings</label>
       <textarea name="mind"></textarea>
 
-      <!-- FormSubmit settings -->
+      <!-- FormSubmit Controls -->
       <input type="hidden" name="_subject" value="New HomeoGuide Patient Lead">
       <input type="hidden" name="_template" value="table">
-      <!-- no _next: will show FormSubmit thank-you page -->
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://lidebapriya.github.io/thanks.html">
 
       <button type="submit" class="send-btn">Send</button>
     </form>
@@ -162,18 +162,14 @@
 
   <script>
     const form = document.getElementById("homeoForm");
-    const b1 = document.getElementById("btn1");
-    const b2 = document.getElementById("btn2");
-    const b3 = document.getElementById("btn3");
+    document.getElementById("btn1").onclick = openForm;
+    document.getElementById("btn2").onclick = openForm;
+    document.getElementById("btn3").onclick = openForm;
 
     function openForm() {
       form.style.display = "block";
       form.scrollIntoView({ behavior: "smooth" });
     }
-
-    b1.addEventListener("click", openForm);
-    b2.addEventListener("click", openForm);
-    b3.addEventListener("click", openForm);
   </script>
 
 </body>
