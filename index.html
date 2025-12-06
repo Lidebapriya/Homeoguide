@@ -24,12 +24,6 @@
       border-radius: 18px;
       box-shadow: 0 12px 30px rgba(0,0,0,0.25);
       padding: 22px;
-      animation: fadeIn 0.8s ease;
-    }
-
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(20px);}
-      to {opacity: 1; transform: translateY(0);}
     }
 
     h1 {
@@ -106,14 +100,6 @@
       text-align: center;
       color: #666;
     }
-
-    .success {
-      display: none;
-      text-align: center;
-      color: green;
-      font-weight: bold;
-      margin-top: 15px;
-    }
   </style>
 </head>
 
@@ -129,9 +115,8 @@
     <button class="btn-main" onclick="showForm()">Urgent Help</button>
     <button class="btn-main" onclick="showForm()">Medicine Request</button>
 
-    <form action="https://formsubmit.co/debapriyadhali1@gmail.com" method="POST">
-  <input type="hidden" name="_replyto">
-  <input type="hidden" name="_force" value="true">
+    <!-- ✅ CLEAN FORM SUBMIT (DIRECT GMAIL) -->
+    <form action="https://formsubmit.co/debapriyadhali1@gmail.com" method="POST" id="homeoForm">
 
       <label>Your Name</label>
       <input type="text" name="name" required>
@@ -158,20 +143,14 @@
       <label>Your Mind & Feelings</label>
       <textarea name="mind"></textarea>
 
-      <!-- Formspree Enhancements -->
+      <!-- ✅ SYSTEM FIELDS (FORM SUBMIT ONLY) -->
       <input type="hidden" name="_subject" value="New HomeoGuide Patient Lead">
       <input type="hidden" name="_template" value="table">
-      
-<input type="hidden" name="_subject" value="New HomeoGuide Patient Lead">
-<input type="hidden" name="_template" value="table">
-<input type="hidden" name="_captcha" value="false">
-<input type="hidden" name="_next" value="https://lidebapriya.github.io/">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://lidebapriya.github.io/">
+
       <button type="submit" class="send-btn">Send</button>
     </form>
-
-    <div class="success" id="successMsg">
-      ✅ Your request has been sent successfully!
-    </div>
 
     <div class="footer">
       Contact: debapriyadhali1@gmail.com <br>
