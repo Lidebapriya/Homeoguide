@@ -29,7 +29,7 @@
     h1 {
       text-align: center;
       color: #0f4c75;
-      margin-bottom: 5px;
+      margin-bottom: 6px;
     }
 
     .subtitle {
@@ -51,7 +51,7 @@
       cursor: pointer;
     }
 
-    .btn-main:hover {
+    .btn-main.alt {
       background: #3282b8;
     }
 
@@ -111,12 +111,15 @@
       Free guide to the right homeopathic doctor & medicine support.
     </div>
 
-    <button class="btn-main" onclick="showForm()">Start My Matching</button>
-    <button class="btn-main" onclick="showForm()">Urgent Help</button>
-    <button class="btn-main" onclick="showForm()">Medicine Request</button>
+    <!-- ✅ BUTTONS (NO INLINE JS) -->
+    <button class="btn-main" id="btn1">Start My Matching</button>
+    <button class="btn-main alt" id="btn2">Urgent Help</button>
+    <button class="btn-main" id="btn3">Medicine Request</button>
 
-    <!-- ✅ DIRECT GMAIL FORM -->
-    <form action="https://formsubmit.co/debapriyadhali1@gmail.com" method="POST" id="homeoForm">
+    <!-- ✅ FORM -->
+    <form id="homeoForm"
+      action="https://formsubmit.co/debapriyadhali1@gmail.com"
+      method="POST">
 
       <label>Your Name</label>
       <input type="text" name="name" required>
@@ -143,7 +146,7 @@
       <label>Your Mind & Feelings</label>
       <textarea name="mind"></textarea>
 
-      <!-- ✅ SYSTEM FIELDS -->
+      <!-- ✅ SYSTEM -->
       <input type="hidden" name="_subject" value="New HomeoGuide Patient Lead">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
@@ -156,12 +159,17 @@
       Contact: debapriyadhali1@gmail.com <br>
       Guidance only. For emergency, go to hospital.
     </div>
-
   </div>
 
+  <!-- ✅ GUARANTEED WORKING JAVASCRIPT -->
   <script>
-    function showForm() {
-      var form = document.getElementById("homeoForm");
+    const form = document.getElementById("homeoForm");
+
+    document.getElementById("btn1").addEventListener("click", openForm);
+    document.getElementById("btn2").addEventListener("click", openForm);
+    document.getElementById("btn3").addEventListener("click", openForm);
+
+    function openForm() {
       form.style.display = "block";
       form.scrollIntoView({ behavior: "smooth" });
     }
